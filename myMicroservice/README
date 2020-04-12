@@ -1,0 +1,22 @@
+
+
+Create a container
+docker create myimage
+
+> docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS        PORTS   NAMES
+ceda87b219a4        myimage             "dotnet app/myapp.dll"   4 seconds ago       Created               gallant_lehmann
+
+
+Connect to a container
+docker start gallant_lehmann
+
+Delete a container
+docker stop gallant_lehmann
+
+Change the ENTRYPOINT
+docker run -it --rm --entrypoint "cmd.exe" myimage
+
+
+Clean up resources
+docker rm CONTAINER_NAME

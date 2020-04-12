@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    build:
+      context: ./sqlserver
+      dockerfile: Dockerfile
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "123SQLserver"
+      ACCEPT_EULA: "Y"
+    #healthcheck:
+    #  test: sqlcmd -S db1.internal.prod.example.com -U SA -P 'Alaska2017' -Q 'select distinct 1 from AdventureWorksDW2017.dbo.DimDate'
+
+  adminer:
+    build:
+      context: ./adminer
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - db:db

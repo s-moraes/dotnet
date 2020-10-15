@@ -9,6 +9,7 @@ services:
       - "1433:1433"
     environment:
       SA_PASSWORD: "123SQLserver" #user=sa
+      #MSSQL_SA_PASSWORD: "123SQLserver"
       ACCEPT_EULA: "Y"
     volumes:
       - ./_sqlserver/data:/var/opt/mssql/data

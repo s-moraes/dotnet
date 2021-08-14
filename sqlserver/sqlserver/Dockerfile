@@ -1,7 +1,10 @@
-FROM microsoft/mssql-server-linux:latest
+FROM mcr.microsoft.com/mssql/server:2019-latest
+
+USER root
 
 RUN apt-get update && apt-get install -y  \
 	curl \
+	gnupg2 \
 	apt-transport-https
 
 # https://docs.microsoft.com/en-us/sql/connect/odbc/linux/installing-the-microsoft-odbc-driver-for-sql-server-on-linux

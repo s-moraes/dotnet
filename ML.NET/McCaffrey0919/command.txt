@@ -1,0 +1,1 @@
+mlnet classification --dataset employees_train.tsv --label-col satisfac --has-header true --cache on --train-time 50 --ignore-cols test1 test2

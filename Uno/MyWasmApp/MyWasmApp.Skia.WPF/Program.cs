@@ -1,0 +1,3 @@
+namespace MyWasmApp.Skia.Gtk
+{
+}

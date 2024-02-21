@@ -2,15 +2,19 @@ version: '3'
 
 services:
   db:
+    container_name: sql1
+    hostname: sql1
     build:
       context: ./sqlserver
       dockerfile: Dockerfile
     ports:
       - "1433:1433"
     environment:
-      SA_PASSWORD: "123SQLserver" #user=sa
-      #MSSQL_SA_PASSWORD: "123SQLserver"
+      MSSQL_SA_PASSWORD: "r00t.R00T" #user=sa
       ACCEPT_EULA: "Y"
+      MSSQL_DATA_DIR: /var/opt/mssql/data
+      MSSQL_PID: 'Developer' #specifies the freely licensed Developer Edition of SQL Server for non-production use
+      MSSQL_TCP_PORT: 1433
     volumes:
       - ./_sqlserver/data:/var/opt/mssql/data
       - ./_sqlserver/secrets:/var/opt/mssql/secrets
@@ -25,4 +29,4 @@ services:
     ports:
       - "8080:8080"
     links:
-      - db:db
+      - db
